@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f0f2f5;
+    }
+    
+    .login-container {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 300px;
+    }
+    
+    .login-form h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .input-group {
+        position: relative;
+        margin-bottom: 30px;
+    }
+    
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        background: #f0f2f5;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        transition: background 0.3s ease;
+    }
+    
+    .input-group label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        color: #999;
+    }
+    
+    .input-group input:focus + label,
+    .input-group input:valid + label {
+        top: -10px;
+        left: 10px;
+        color: #007bff;
+        font-size: 12px;
+        background: #ffffff;
+        padding: 0 5px;
+        border-radius: 5px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #007bff;
+        color: #ffffff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    
+    button:hover {
+        background: #0056b3;
+    }
+    
+    .signup-link {
+        margin-top: 20px;
+        text-align: center;
+        color: #666;
+    }
+    
+    .signup-link a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .signup-link a:hover {
+        color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form" method="POST" action="/login">
+          {% csrf_token %}
+            <h2>Login</h2>
+            <div class="input-group">
+                <input type="text" id="username" name="username"required>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password"required>
+                <label for="password">Password</label>
+            </div>
+            <button type="submit">Login</button>
+            <p class="signup-link">Don't have an account?<br> <a href="/signup">Sign up</a></p>
+        </form>
+    </div>
+</body>
+</html>

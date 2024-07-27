@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Data for {{ city }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .weather-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .weather-item {
+            margin-bottom: 15px;
+        }
+        .weather-item h3 {
+            margin: 0 0 10px;
+        }
+        .weather-item p {
+            margin: 5px 0;
+        }
+        .back {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+        }
+        
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-container">
+        <a href="/" class="back">Back</a>
+        <h1>Weather Data for {{ city }}</h1>
+        {% for weather in weather_data %}
+        <div class="weather-item">
+            <h3>Date: {{ weather.date }}</h3>
+            <p>Max Temperature: {{ weather.maxtemp_c }}°C</p>
+            <p>Min Temperature: {{ weather.mintemp_c }}°C</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
